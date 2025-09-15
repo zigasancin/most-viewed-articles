@@ -1,0 +1,37 @@
+.mva-tabs {
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	overflow: hidden;
+	font-size: 14px;
+}
+
+.mva-tab-nav {
+	display: flex;
+	border-bottom: 1px solid #ddd;
+	background: #f9f9f9;
+}
+
+.mva-tab-button {
+	flex: 1;
+	padding: 8px 12px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-weight: 600;
+	text-align: center;
+}
+
+.mva-tab-button.active {
+	background: #fff;
+	border-bottom: 2px solid #0073aa;
+	color: #0073aa;
+}
+
+.mva-tab-panel {
+	display: none;
+	padding: 10px;
+}
+
+.mva-tab-panel.active {
+	display: block;
+}
