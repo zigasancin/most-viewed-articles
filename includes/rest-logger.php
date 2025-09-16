@@ -61,8 +61,8 @@ class Rest_Logger {
 
 		$recent = $wpdb->get_var(
 			$wpdb->prepare(
-				"SELECT COUNT(*) FROM {$wpdb->prefix}mva_views WHERE post_id = %d AND ip_address = %s AND viewed_at >= (NOW() - INTERVAL 1 HOUR)",
-				$post_id, $ip
+				"SELECT COUNT(*) FROM {$wpdb->prefix}mva_views WHERE post_id = %d AND ip_address = %s AND viewed_at >= %s",
+				$post_id, $ip, gmdate( 'Y-m-d H:i:s', strtotime( '-1 hour' ) )
 			)
 		);
 
@@ -72,7 +72,7 @@ class Rest_Logger {
 				array(
 					'post_id'    => $post_id,
 					'ip_address' => $ip,
-					'viewed_at'  => current_time( 'mysql' )
+					'viewed_at'  => current_time( 'mysql', 1 )
 				),
 				array(
 					'%d',
